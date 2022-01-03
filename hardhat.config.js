@@ -1,13 +1,14 @@
 require("@nomiclabs/hardhat-waffle");
 
-const METAMASK_CONFIG_PRIVATE_KEY = "0x";
+const dotenv = require("dotenv");
+dotenv.config();
 
 module.exports = {
   solidity: "0.8.0",
-  network: {
+  networks: {
     ropsten: {
       url: "https://eth-ropsten.alchemyapi.io/v2/hNepa2j77Jz3oGcERNSduGgNXlr2RM9C",
-      accounts: [METAMASK_CONFIG_PRIVATE_KEY],
+      accounts: [process.env.DEPLOYMENT_WALLET_KEY],
     },
   },
 };
